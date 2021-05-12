@@ -41,13 +41,14 @@ superuser: true
 title: Joy Nyaanga
 ---
 
-# About me
+I am a PhD candidate at **Northwestern University** studying the impact of diet perturbation and 
+genetic diversity on animal growth and development. My professional interests lie in leveraging 
+analytical thinking and reproducible programming to solve complex problems.
 
-I am a PhD candidate at **Northwestern University** studying organismal growth and development. My professional interests
-lie in deciphering large data structures through reproducible and readable programming to gain novel insights.
-
-I am an avid user of the R programming language. I enjoy using R in all aspects of my research from performing statistical analyses,
-creating detailed visualizations, and generating comprehensive reports. 
+I am an avid user of the R programming language. I use R in all aspects of my research from 
+performing statistical analyses, creating detailed visualizations, to generating comprehensive reports.
+When I'm not coding I enjoy all forms of fiction (book and podcast recs welcome!), and 
+exploring the gorgeous city of Chicago.
 
 Welcome to my [blogdown](https://github.com/rstudio/blogdown)-powered website! I'm hoping to share more about my research,
 exciting projects I've been a part of, and any useful tidbits I come across. Please have a look around!
