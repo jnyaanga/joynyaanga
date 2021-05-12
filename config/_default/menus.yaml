@@ -8,11 +8,11 @@ main:
     url: '#about'
     weight: 10
   - name: Projects
-    url: '#posts'
+    url: 'project_landing/'
     weight: 20
-#  - name: Blog
-#    url: '#blog'
-#    weight: 30
+  - name: Posts
+    url: 'post/'
+    weight: 30
   - name: Publications
     url: 'publication/'
     weight: 40

@@ -30,9 +30,9 @@ publishDate: "2021-04-02T00:00:00Z"
 #summary: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere tellus
 #  ac convallis placerat. Proin tincidunt magna sed ex sollicitudin condimentum.
 tags:
-- Source Themes
+#- Source Themes
 title: Physical constraints on growth dynamics guide C. elegans developmental trajectories and animal shape
-url_code: https://github.com/jnyaanga/C.elegans-growth-manuscript
+url_code: https://github.com/AndersenLab/C.elegans-growth-manuscript
 #url_dataset: '#'
 #url_pdf: 
 #url_poster: '#'

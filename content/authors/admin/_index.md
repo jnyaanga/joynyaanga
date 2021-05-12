@@ -2,9 +2,9 @@
 bio: My interests include developmental biology, data visualization, and R.
 education:
   courses:
-  - course: PhD in Quantitative Biology
-    institution: Northwestern University
-    year: Current
+#  - course: PhD in Quantitative Biology
+#    institution: Northwestern University
+#    year: Current
   - course: MA in Molecular Biology
     institution: Princeton University
     year: 2018
@@ -40,7 +40,6 @@ social:
 superuser: true
 title: Joy Nyaanga
 ---
-
 I am a PhD candidate at **Northwestern University** studying the impact of diet perturbation and 
 genetic diversity on animal growth and development. My professional interests lie in leveraging 
 analytical thinking and reproducible programming to solve complex problems.

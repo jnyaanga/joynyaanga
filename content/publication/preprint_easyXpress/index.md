@@ -22,7 +22,7 @@ publishDate: "2021-05-12T00:00:00Z"
 #summary: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere tellus
 #  ac convallis placerat. Proin tincidunt magna sed ex sollicitudin condimentum.
 tags:
-- Source Themes
+#- Source Themes
 title: easyXpress; An R package to analyze and visualize high-throughput C. elegans microscopy data generated using CellProfiler
 url_code: https://github.com/AndersenLab/easyXpress
 #url_dataset: '#'
