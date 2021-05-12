@@ -5,7 +5,7 @@ theme: "starter-academic"
 # This file is formatted using YAML syntax - learn more at https://learnxinyminutes.com/docs/yaml/
 
 title: Joy Nyaanga # Website name
-baseurl: 'https:://joynyaanga.netlify.app/' # Website URL
+baseurl: 'https://joynyaanga.netlify.app/' # Website URL
 copyright: '&copy; Joy Nyaanga {year}' # Footer text, e.g. '© {year} Me'
 
 ############################
