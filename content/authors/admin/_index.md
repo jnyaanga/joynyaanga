@@ -1,52 +1,56 @@
 ---
-bio: My research interests include distributed robotics, mobile computing and programmable
-  matter.
+bio: My interests include developmental biology, data visualization, and R.
 education:
   courses:
-  - course: PhD in Artificial Intelligence
-    institution: Stanford University
-    year: 2012
-  - course: MEng in Artificial Intelligence
-    institution: Massachusetts Institute of Technology
-    year: 2009
-  - course: BSc in Artificial Intelligence
-    institution: Massachusetts Institute of Technology
-    year: 2008
+  - course: PhD in Quantitative Biology
+    institution: Northwestern University
+    year: Current
+  - course: MA in Molecular Biology
+    institution: Princeton University
+    year: 2018
+  - course: BS in Chemistry; Biochemistry concentration, and Cell & Molecular Biology
+    institution: John Carroll University
+    year: 2017
 email: ""
 highlight_name: false
 interests:
-- Artificial Intelligence
-- Computational Linguistics
-- Information Retrieval
+- Developmental Biology
+- Data Visualization
+- Data Analysis & Statistics
+- Mentoring & Education
 organizations:
-- name: Stanford University
-  url: https://www.stanford.edu/
-role: Professor of Artificial Intelligence
+- name: Northwestern University
+  url: https://www.northwestern.edu
+role: PhD Candidate
 social:
-- icon: envelope
-  icon_pack: fas
-  link: /#contact
 - display:
     header: true
   icon: twitter
   icon_pack: fab
-  label: Follow me on Twitter
-  link: https://twitter.com/GeorgeCushen
-- icon: graduation-cap
-  icon_pack: fas
-  link: https://scholar.google.co.uk/citations?user=sIwtMXoAAAAJ
+  link: https://twitter.com/j2wrld
 - icon: github
   icon_pack: fab
-  link: https://github.com/gcushen
+  link: https://github.com/jnyaanga
 - icon: linkedin
   icon_pack: fab
-  link: https://www.linkedin.com/
+  link: https://www.linkedin.com/in/joy-nyaanga/
+- icon: orcid
+  icon_pack: ai
+  link: https://orcid.org/0000-0002-1402-9213
 superuser: true
-title: Nelson Bighetti
+title: Joy Nyaanga
 ---
 
-Nelson Bighetti is a professor of artificial intelligence at the Stanford AI Lab. His research interests include distributed robotics, mobile computing and programmable matter. He leads the Robotic Neurobiology group, which develops self-reconfiguring robots, systems of self-organizing robots, and mobile sensor networks.
+# About me
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed neque elit, tristique placerat feugiat ac, facilisis vitae arcu. Proin eget egestas augue. Praesent ut sem nec arcu pellentesque aliquet. Duis dapibus diam vel metus tempus vulputate.
+I am a PhD candidate at **Northwestern University** studying organismal growth and development. My professional interests
+lie in deciphering large data structures through reproducible and readable programming to gain novel insights.
 
-{{< icon name="download" pack="fas" >}} Download my {{< staticref "media/demo_resume.pdf" "newtab" >}}resumé{{< /staticref >}}.
+I am an avid user of the R programming language. I enjoy using R in all aspects of my research from performing statistical analyses,
+creating detailed visualizations, and generating comprehensive reports. 
+
+Welcome to my [blogdown](https://github.com/rstudio/blogdown)-powered website! I'm hoping to share more about my research,
+exciting projects I've been a part of, and any useful tidbits I come across. Please have a look around!
+
+
+{{< icon name="download" pack="fas" >}} Download my {{< staticref "media/Nyaanga_resume.pdf" "newtab" >}}resumé{{< /staticref >}}.

@@ -6,7 +6,7 @@ theme: "starter-academic"
 
 title: Joy Nyaanga # Website name
 baseurl: 'https:://joynyaanga.netlify.app/' # Website URL
-copyright: '(c) {2021} Joy Nyaanga' # Footer text, e.g. '© {year} Me'
+copyright: '&copy; Joy Nyaanga {year}' # Footer text, e.g. '© {year} Me'
 
 ############################
 ## LANGUAGE
@@ -36,7 +36,7 @@ paginate: 10
 enableEmoji: true
 enableRobotsTXT: true
 footnotereturnlinkcontents: <sup>^</sup>
-ignoreFiles: [\.ipynb$, .ipynb_checkpoints$, \.Rmd$, \.Rmarkdown$, _cache$]
+ignoreFiles: ["\\.knit\\.md$", "\\.utf8\\.md$", \.ipynb$, .ipynb_checkpoints$, \.Rmd$, \.Rmarkdown$, _cache$]
 permalinks:
   event: '/talk/:slug/'
   authors: '/author/:slug/'
