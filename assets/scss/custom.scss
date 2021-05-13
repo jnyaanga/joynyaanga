@@ -4,9 +4,20 @@ body {
   margin-top: 80px !important;
 }
 
+
 .navbar {
   min-height: 90px !important;
 }
+
+/* Demo header: */
+
+#demo h1 {
+  font-family: 'Codystar', cursive;
+  font-size: 6rem;
+  font-weight: 400;
+  margin-top: 10px;
+}
+
 
 /* Make mobile navbar skinnier */
 
@@ -19,10 +30,12 @@ body {
     }
   }
 
-.navbar {
+/*need to fix for light and dark mode*/
+.light .navbar {
     background-color: #fcfcfc33;
     box-shadow: 0 0 50px rgba(252, 252, 252, 0.76);
     background-image: linear-gradient(to bottom, #fcfcfc, #fcfcfc, #fcfcfc, #fcfcfced, #fcfcfcba, #fcfcfc33) !important;
+
 }
 
 /*make drop down menu more opaque on mobile */
@@ -100,13 +113,6 @@ padding: 1rem;
 }
 
 /* -------About/Home Section-------- */
-
-.home-section.wg-about {
-  padding-top: 10;
-  margin-top: -30px;
-  box-shadow: 0px -50px 50px 50px rgba(252, 252, 252, 1);
-
-}
 
 
 #about h1 {
