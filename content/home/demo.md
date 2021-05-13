@@ -12,20 +12,20 @@ headless: true
 # Order that this section appears on the page.
 weight: 10
 
-title: 
-subtitle: 
+#title: Welcome
+#subtitle: It's great to have you here
 
 design:
   columns: "1"
   background:
     image: chicago1.jpg
-    image_darken: 0.9
+    image_darken: 1.0
     image_parallax: true
-    image_position: center
+    image_position: 'center'
     image_size: cover
     text_color_light: true
   spacing:
-    padding: ["350px", "0", "350px", "0"]
+    padding: ["400px", "0", "400px", "0"] 
 ---
 
 

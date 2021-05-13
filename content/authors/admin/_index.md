@@ -2,8 +2,8 @@
 bio: My interests include developmental biology, data visualization, and R.
 education:
   courses:
-#  - course: PhD in Quantitative Biology
-#    institution: Northwestern University
+  - course: PhD in Quantitative Biology
+    institution: Northwestern University
 #    year: Current
   - course: MA in Molecular Biology
     institution: Princeton University
