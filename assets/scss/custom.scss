@@ -54,6 +54,14 @@ body {
   }
 }
 
+/* links */
+
+a:active,
+a:focus,
+a:hover {
+  color: #0027B5;
+}
+
 /*----NAV LINK HOVER ANIMATION -----*/
 
 .nav-link:hover {
@@ -90,6 +98,28 @@ a.nav-link:hover:after {
   width: 70%;
 }
 
+/* code */
+
+pre, code {
+	color: #4A7E86;
+	background-color: #fff;
+	padding-left: .5em;
+	padding-right: .5em;
+}
+
+pre {
+  border: 1px solid #fff;
+  box-shadow: 5px 5px 5px #eee;
+  padding: 0.25em;
+  background: #fff;
+  overflow-x: auto;
+  border-radius: 0px; /*undo rounded corners*/
+}
+
+pre code {
+  background: none;
+  font-size: 0.8rem;
+}
 
 /* -------About/Home Section-------- */
 

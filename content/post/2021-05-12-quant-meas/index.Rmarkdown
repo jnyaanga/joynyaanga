@@ -24,7 +24,7 @@ People have studied growth in a multitude of organisms from unicellular models l
 
 I am particularly invested in the advantages provided by studying *C. elegans* to answer questions about growth and it’s regulation. By **quantitatively** studying feeding behavior and changes in animal size, I aim to address **what** growth looks like, and also gain a bit of insight into **growth regulation**.
 
-<img align='right' alt='Crawling C. elegans' src='https://thumbs.gfycat.com/BraveEnragedBillygoat-mobile.mp4' width='300'>
+<img align='right' alt='Crawling C. elegans' src='https://thumbs.gfycat.com/BraveEnragedBillygoat-mobile.mp4' width='300'>  
   
 Traditional methods for measuring *C. elegans* size during development rely on manual analyses, requiring researchers to collect images of animals and use image analysis software to obtain measurements of size -- this can be a bottleneck to perform the large-scale quantitative experiments that are needed to capture and analyze population growth dynamics. We developed a protocol that directly integrates an image-based phenotyping strategy with a large-particle flow cytometer to precisely evaluate changes in animal size and morphology at high replication.
 
@@ -45,9 +45,4 @@ And raw size data that looks like this:
 Each point is an individual measured animal, with ~2000 measurements at every hour!
 
 Now the challenge is making sense of these data to learn something new about growth during development.
-
-
-```{r}
-
-```
 
