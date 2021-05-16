@@ -89,7 +89,7 @@ summary(H70, parameters = TRUE)
 
 Alright pretty cool - from the density plot its clear that there are two densities and running mclust shows us how the data was grouped. The smaller cluster of newly hatched animals has an average length of 247.8um and makes up 65% of the data at hour 70. 
 
-This would work but to increase the performance of the model-based clustering, I decided to use log transform length and as inputs.
+This would work but to increase the performance of the model-based clustering, I decided to use log transform length and width as inputs.
 
 ```{r}
 H70 <- rawdata %>%

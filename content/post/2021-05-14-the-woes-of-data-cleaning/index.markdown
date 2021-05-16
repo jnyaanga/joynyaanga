@@ -63,7 +63,7 @@ plot(H70, what = c("density"))
 ## Mclust V (univariate, unequal variance) model with 2 components: 
 ## 
 ##  log-likelihood    n df       BIC       ICL
-##       -32149.46 5450  5 -64341.93 -64343.26
+##       -32149.42 5450  5 -64341.86 -64343.07
 ## 
 ## Clustering table:
 ##    1    2 
@@ -71,20 +71,20 @@ plot(H70, what = c("density"))
 ## 
 ## Mixing probabilities:
 ##         1         2 
-## 0.6489146 0.3510854 
+## 0.6489289 0.3510711 
 ## 
 ## Means:
 ##         1         2 
-##  247.8057 1394.4688 
+##  247.8094 1394.5085 
 ## 
 ## Variances:
 ##          1          2 
-##   590.8335 22821.1726
+##   591.4166 22783.0510
 ```
 
 Alright pretty cool - from the density plot its clear that there are two densities and running mclust shows us how the data was grouped. The smaller cluster of newly hatched animals has an average length of 247.8um and makes up 65% of the data at hour 70. 
 
-This would work but to increase the performance of the model-based clustering, I decided to use log transform length and as inputs.
+This would work but to increase the performance of the model-based clustering, I decided to use log transform length and width as inputs.
 
 
 ```r
