@@ -4,7 +4,7 @@ education:
   courses:
   - course: PhD in Quantitative Biology
     institution: Northwestern University
-#    year: Current
+    year: 2018 - Current
   - course: MA in Molecular Biology
     institution: Princeton University
     year: 2018
@@ -15,8 +15,8 @@ email: ""
 highlight_name: false
 interests:
 - Developmental Biology
+- Data Science
 - Data Visualization
-- Data Analysis & Statistics
 - Mentoring & Education
 organizations:
 - name: Northwestern University

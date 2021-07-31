@@ -13,7 +13,7 @@ authors: []
 lastmod: '2021-05-18T18:33:48-05:00'
 featured: no
 image:
-  caption: ''
+  caption: '[Photo by Thimo Pedersen on Unsplash](https://unsplash.com/photos/dip9IIwUK6w)'
   focal_point: ''
   preview_only: no
 projects: []
