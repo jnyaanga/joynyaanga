@@ -13,7 +13,7 @@ image:
   preview_only: false
 #projects:
 #- internal-project
-publication: ""
+publication: "PLoS ONE"
 publication_short: ""
 publication_types:
 - "2"
@@ -26,7 +26,7 @@ tags:
 title: easyXpress; An R package to analyze and visualize high-throughput C. elegans microscopy data generated using CellProfiler
 url_code: https://github.com/AndersenLab/easyXpress
 #url_dataset: '#'
-url_pdf: https://rpubs.com/jnyaanga/765641
+#url_pdf: https://rpubs.com/jnyaanga/765641
 url_poster: https://drive.google.com/file/d/10HViS0hvnLT_edgKXiNJ6xVV5UwprNlb/view?usp=sharing
 #url_project: 
 #url_slides: ""

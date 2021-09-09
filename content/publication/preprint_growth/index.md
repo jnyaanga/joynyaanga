@@ -21,7 +21,7 @@ image:
   preview_only: false
 #projects:
 #- internal-project
-publication: ""
+publication: "bioRxiv"
 publication_short: ""
 publication_types:
 - "3"

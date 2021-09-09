@@ -46,11 +46,11 @@ body {
 
 @media (max-width: 991.98px) {
 .dark .navbar-collapse {
-    background-color: #4D4D4D98 !important;
+    background-color: #222222D9 !important;
   }
 
 .navbar-collapse {
-    background-color: #f7f7f798 !important;
+    background-color: #f7f7f7F2 !important;
   }
 }
 
@@ -58,11 +58,16 @@ body {
 
 a:active,
 a:focus,
+
 a:hover {
   color: #0027B5;
 }
 
 /*----NAV LINK HOVER ANIMATION -----*/
+
+.dark .nav-link:hover {
+  color: #4a6c8a !important;
+}
 
 .nav-link:hover {
   color: black !important;
