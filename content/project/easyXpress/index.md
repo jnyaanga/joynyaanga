@@ -20,4 +20,4 @@ Developments in high-throughput imaging techniques have led to a rapid increase 
 
 We developed easyXpress, a software package for the R statistical programming language, to assist in the processing, analysis, and visualization of *C. elegans* data generated using CellProfiler. easyXpress provides tools for quality control, summarization, and visualization of image-based *C. elegans* phenotype data. By leveraging existing R infrastructure, easyXpress enables reproducible analysis, integration with other statistical R packages, and extensibility to many research projects using an open-source analysis pipeline.
 
-A detailed walk through applying the easyXpress package to a sample dataset can be found [here](https://rpubs.com/jnyaanga/765641). Details about the publication can be found under the publications tab.
+A detailed walk through applying the easyXpress package to a sample dataset can be found [here](https://rpubs.com/jnyaanga/765641). Details about the publication can be found under [publications](/publication/easyxpress).
