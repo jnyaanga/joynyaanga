@@ -4,7 +4,7 @@ summary: Lessons and presentation documents for summer 2020 research students
 image:
   caption: '[Photo by Lucas Mayer on Unsplash](https://unsplash.com/photos/4Vhgk3G5URM?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink)'
   focal_point: 'center'
-date: "2021-09-09T00:00:00Z"
+date: "2021-04-15T00:00:00Z"
 external_link: ""
 image:
   focal_point: Smart
