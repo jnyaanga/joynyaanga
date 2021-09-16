@@ -17,10 +17,12 @@ image:
   preview_only: no
 projects: []
 ---
-Here I want to talk briefly about the advantages of and tools for building project-oriented workflows.
-As a beginning R user, I was aware of the benefits of organizing each data analysis into a project: 
+In this post I will talk briefly about the advantages of and tools for building project-oriented workflows.
+All this with the hope that I can convince you to never write another absolute file path again.
+  
+When I was first starting out in R, I was aware of the benefits of organizing each data analysis into a project: 
 a folder on your computer that holds all the files relevant to that particular piece of work. 
-However, I was unaware of tools such as Rprojects that allowed for easy navigation through projects. 
+I was unaware, however, of tools such as Rprojects that allow for easy navigation through projects. 
 
 
 
@@ -38,7 +40,6 @@ While `setwd()` served it's purpose, I often ended up frustrated when trying to 
 or working on my personal computer. And not to mention the impossibility of easily sharing code with this structure.
 Simply moving the entire directory to a new sub-folder or to a new drive breaks the links leaving you with a useless script! 
 
-  
 RStudio fully supports Project-based workflows, making it easy to switch from one to another, 
 have many projects open at once, re-launch recently used Projects, etc.    
 
@@ -94,7 +95,6 @@ library(here)
 ## here() starts at /Users/joy/Documents/GitHub/joynyaanga/content/post/2021-09-16-project-workflow
 ```
 
-    
 Now you can build paths relative to the top-level directory:
 
 ```r
