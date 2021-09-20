@@ -1,5 +1,5 @@
 ---
-title: 'scanpy'
+title: 'Analyzing single cell data using scanpy'
 author: Joy Nyaanga
 date: '2021-09-16'
 slug: scanpy
@@ -16,11 +16,11 @@ image:
   preview_only: no
 projects: [trajectory-inference]
 ---
-  
-```{r}
-library(reticulate)
-```
 
+```{r include=FALSE}
+library(reticulate)
+use_python('/Users/joy/miniconda3/bin/python')
+```
 
 ```{python}
 import numpy as np
@@ -119,17 +119,14 @@ sc.pl.pca(pbmc, color='NKG7')
 sc.pl.pca_variance_ratio(pbmc, log=True)
 ```
 
-### UMAP/tSNE
+### tSNE
 
 ```{python}
 sc.tl.tsne(pbmc, n_pcs = 10)
-
 sc.pp.neighbors(pbmc, n_neighbors=10, n_pcs=10)
-sc.tl.umap(pbmc)
 ```
 
 ```{python}
-sc.pl.umap(pbmc)
 sc.pl.tsne(pbmc)
 ```
 
@@ -140,7 +137,6 @@ sc.tl.leiden(pbmc, resolution = 0.4)
 ```
 
 ```{python}
-sc.pl.umap(pbmc, color = 'leiden')
 sc.pl.tsne(pbmc, color = 'leiden')
 ```
 
@@ -154,43 +150,14 @@ new_cluster_names = [
     'NK', 'FCGR3A Monocytes',
     'DC', 'Platelet']
 pbmc.rename_categories('leiden', new_cluster_names)
+pbmc.obs['clusters'] = pbmc.obs.leiden
 ```
 
 ```{python}
-sc.pl.umap(pbmc, color='leiden', legend_loc='on data')
-sc.pl.tsne(pbmc, color='leiden', legend_loc='on data')
+sc.pl.tsne(pbmc, color='clusters', legend_loc='on data')
 ```
 
-## DPT
 
-#### calculate diffusion map
-
-```{python}
-sc.tl.diffmap(pbmc)
-```
-
-```{python}
-pbmc.obs
-```
-
-#### calculate diffusion psuedotime
-
-```{python}
-pbmc.uns['iroot'] = np.flatnonzero(pbmc.obs['leiden'] == 'NK')[0]
-sc.tl.dpt(pbmc, n_branchings = 2)
-```
-
-```{python}
-pbmc
-```
-
-```{python}
-sc.pl.diffmap(pbmc, color=['dpt_pseudotime', 'leiden'])
-```
-
-```{python}
-sc.pl.diffmap(pbmc, color=['dpt_pseudotime', 'leiden'])
-```
 
 
 

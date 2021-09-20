@@ -1,5 +1,8 @@
 # REMEMBER to restart R after you modify and save this file!
 
+# configure python environment
+RETICULATE_MINICONDA_PATH = '/Users/joy/miniconda3'
+
 # First, execute the global .Rprofile if it exists. You may configure blogdown
 # options there, too, so they apply to any blogdown projects. Feel free to
 # ignore this part if it sounds too complicated to you.
