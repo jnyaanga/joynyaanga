@@ -61,7 +61,7 @@ getwd()
 ```
 
 ```
-## [1] "/Users/joy/Documents/GitHub/joynyaanga/content/post/2021-09-16-project-workflow"
+## [1] "/Users/grad/Documents/GitHub/joynyaanga/content/post/2021-09-16-project-workflow"
 ```
 Whenever you refer to a file with a relative path, it will start by looking here.  
 
@@ -92,7 +92,7 @@ library(here)
 ```
 
 ```
-## here() starts at /Users/joy/Documents/GitHub/joynyaanga/content/post/2021-09-16-project-workflow
+## here() starts at /Users/grad/Documents/GitHub/joynyaanga/content/post/2021-09-16-project-workflow
 ```
 
 Now you can build paths relative to the top-level directory:
@@ -102,7 +102,8 @@ sample <- readr::read_csv(here::here('sample', 'diamonds.csv'))
 ```
 
 ```
-## Parsed with column specification:
+## 
+## ── Column specification ────────────────────────────────────────────────────────
 ## cols(
 ##   carat = col_double(),
 ##   cut = col_character(),
