@@ -113,8 +113,8 @@ pre, code {
 }
 
 pre {
-  border: 1px solid #fff;
-  box-shadow: 5px 5px 5px #eee;
+  border: 1px solid #100f0f;
+  box-shadow: 5px 5px 5px #686B77;
   padding: 0.25em;
   background: #fff;
   overflow-x: auto;
@@ -123,8 +123,15 @@ pre {
 
 pre code {
   background: none;
-  font-size: 0.8rem;
+  font-size: 0.65rem;
 }
+
+.dark pre, .dark code {
+    color: #8be9fd;
+    background-color: #0f1d2a;
+}
+
+
 
 /* -------About/Home Section-------- */
 
@@ -171,40 +178,6 @@ pre code {
       padding-left: 15px !important;
     }
   }
-
-/* HELLO image */
-
-.parallax {
-  background-position: center center;
-  padding-top: 10vh !important;
-  background-attachment: scroll !important; /*override 'fixed' for iOS problem */
-}
-
-.parallax:after {
-  content:"";
-  position: fixed; /* stretch a fixed position to the whole screen */
-  top:0;
-  height:100vh; /* fix for mobile browser address bar appearing disappearing */
-  left:0;
-  right:0;
-  z-index:-1; /* needed to keep in the background */
-  background: url(/img/hello.jpg) center center;
-  -webkit-background-size: contain;
-  -moz-background-size: contain;
-  -o-background-size: contain;
-  background-size: contain;
-  background-repeat: no-repeat;
-}
-
-@media screen and (max-width: 768px) {
-  .home-section.bg-image {
-    background-position-x: 39%;
-    background-size: 100%;
-    padding: 300px 0 275px 0;
-  }
-}
-
-
 
 
 /* MOBILE PROJECTS PAGE */

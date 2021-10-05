@@ -6,8 +6,6 @@ image:
   focal_point: 'center'
 date: "2021-04-15T00:00:00Z"
 external_link: ""
-image:
-  focal_point: Smart
 links:
 - icon: github
   icon_pack: fab
