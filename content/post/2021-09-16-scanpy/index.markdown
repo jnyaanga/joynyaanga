@@ -205,7 +205,7 @@ marker_genes = ['IL7R', 'CD14', 'LYZ', 'MS4A1', 'CD8A', 'CD8B',
 ```
 
 ```python
-sc.pl.dotplot(pbmc, marker_genes, groupby = 'leiden', figsize = (5,3))
+sc.pl.dotplot(pbmc, marker_genes, groupby = 'leiden', figsize = (5,3), swap_axes = True) 
 ```
 
 <img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-21-13.png" width="480" />

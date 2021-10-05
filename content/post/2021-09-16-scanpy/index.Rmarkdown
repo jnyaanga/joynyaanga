@@ -161,7 +161,7 @@ marker_genes = ['IL7R', 'CD14', 'LYZ', 'MS4A1', 'CD8A', 'CD8B',
                 'GNLY', 'NKG7', 'FCGR3A', 'MS4A7', 'FCER1A', 'CST3']
 ```
 ```{python, fig.dim = c(6,6)}
-sc.pl.dotplot(pbmc, marker_genes, groupby = 'leiden', figsize = (5,3))
+sc.pl.dotplot(pbmc, marker_genes, groupby = 'leiden', figsize = (5,3), swap_axes = True) 
 ```
 
 Finally, I can mark the cell types in the AnnData object and replot.  
