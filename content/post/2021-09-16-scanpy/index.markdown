@@ -18,9 +18,9 @@ projects: [trajectory-inference]
 ---
 This past summer, I was immersed in the world of single-cell genomics - a completely new field to me. With this came learning not only how data were experimentally collected, but also how to computationally process these data. 
   
-Although much of my work was performed in Python, I dabbled a bit in the R tools for exploring single-cell RNA-seq data. As such, this will be part 1 of a two part series on basics of handling single-cell data. Here I intend to discuss some basics of `Scanpy`: a Python-based toolkit for handling large single-cell expression datasets.   
+Although much of my work was performed in Python, I dabbled a bit in the R tools for exploring single-cell RNA-seq data. As such, this will be part 1 of a two part series on basics of handling single-cell data. Here I intend to discuss some basics of `Scanpy`: a Python-based toolkit for handling large single-cell expression data sets.   
 
-[`Scanpy`](https://scanpy.readthedocs.io/en/stable/) contains various functions for the preprocessing, visualization, clustering, trajectory inference, and differential expression testing of single-cell gene expression data. It is built joinly with [`AnnData`](https://anndata.readthedocs.io/en/latest/) which allows for simple tracking of single-cell data and associated metadata. Typically, I interface with Python and `Scanpy` with `jupyterlab` but in this post I use Rmarkdown to run Python code (see previous [post](/post/r-python) if you're curious how this is done).  
+[`Scanpy`](https://scanpy.readthedocs.io/en/stable/) contains various functions for the preprocessing, visualization, clustering, trajectory inference, and differential expression testing of single-cell gene expression data. It is built jointly with [`AnnData`](https://anndata.readthedocs.io/en/latest/) which allows for simple tracking of single-cell data and associated metadata. Typically, I interface with Python and `Scanpy` with `jupyterlab` but in this post I use Rmarkdown to run Python code (see previous [post](/post/r-python) if you're curious how this is done).  
 
 ## Set Up   
 
@@ -37,7 +37,7 @@ import pandas as pd
 import scanpy as sc
 ```
 
-In this post I will analyze a freely available dataset from 10X genomics. This dataset contains information from 2,700 single Peripheral Blood Mononuclear cells (PBMCs) that were sequenced on the Illumina NextSeq 500. You can download the raw data [here](https://cf.10xgenomics.com/samples/cell/pbmc3k/pbmc3k_filtered_gene_bc_matrices.tar.gz).  
+In this post I will analyze a freely available data set from 10X genomics. This data set contains information from 2,700 single Peripheral Blood Mononuclear cells (PBMCs) that were sequenced on the Illumina NextSeq 500. You can download the raw data [here](https://cf.10xgenomics.com/samples/cell/pbmc3k/pbmc3k_filtered_gene_bc_matrices.tar.gz).  
 
 The first step is to read the count matrix into an `AnnData` object -- an annotated data matrix. Simply, this object stores the count matrix together with any additional slots for information about the genes _(.var)_, cells _(.obs)_, or anything else _(.uns)_.
 
@@ -103,7 +103,7 @@ pbmc
   
     
 ## Transform data 
-Now that the data is filtered, the next step is normalization. Here I normalize the data matrix o 10k reads per cell. In this way, the counts become comparable amoung cells. Following this step, I logarithmize the data.  
+Now that the data is filtered, the next step is normalization. Here I normalize the data matrix to 10k reads per cell. In this way, the counts become comparable among cells. Following this step, I logarithmize the data.  
 
 
 ```python
@@ -163,7 +163,7 @@ sc.pl.pca_variance_ratio(pbmc, log=True)
 <img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-15-7.png" width="672" />
 
 ## Dimensional Reduction: UMAP  
-Alternatively, I can visualize the data using a non-linear dimentional reduction technique. In this step I compute the neighborhood graph using the PCA representation of the data. I then embed the graph in two dimensions using UMAP. If preferred, a tSNE representation can also be generated using `scanpy`  
+Alternatively, I can visualize the data using a non-linear dimensional reduction technique. In this step I compute the neighborhood graph using the PCA representation of the data. I then embed the graph in two dimensions using UMAP. If preferred, a tSNE representation can also be generated using `scanpy`  
 
 
 ```python
@@ -192,7 +192,7 @@ sc.pl.umap(pbmc, color = ['leiden', 'NKG7'])
 <img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-19-11.png" width="1514" />
 
 ## Assign cell identities
-Now that the data are clustered, the natural next step is to identify the cell type each leiden cluster best corresponds to. This is often done using biomarkers. The function `scanpy.tl.rank_genes_groups()` will compute a ranking for the highly differential genes in each cluster. Of course there are more robust packages for performing differetial testing (like MAST, limma, DESeq2) but this simple method is sufficient for identifying expression patterns of known marker genes. To simplify this process, I will use the list of known markers and their associated groups below:
+Now that the data are clustered, the natural next step is to identify the cell type each leiden cluster best corresponds to. This is often done using biomarkers. The function `scanpy.tl.rank_genes_groups()` will compute a ranking for the highly differential genes in each cluster. Of course there are more robust packages for performing differential testing (like MAST, limma, DESeq2) but this simple method is sufficient for identifying expression patterns of known marker genes. To simplify this process, I will use the list of known markers and their associated groups below:
   
 ![](markers.png)    
   
