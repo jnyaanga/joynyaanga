@@ -3,7 +3,6 @@ title: 'Analyzing single cell data: seurat'
 author: Joy Nyaanga
 date: '2021-10-07'
 slug: seurat
-draft: true
 categories: []
 tags: []
 subtitle: ''
@@ -24,7 +23,6 @@ As promised, this is part 2 of the analyzing single-cell data series. In this po
 ## Set Up   
 ```{r, message = F}
 library(Seurat)
-library(patchwork)
 ```
 
 Again, I will be analyzing the data set of 2,700 single Peripheral Blood Mononuclear cells (PBMC) from 10X genomics. Reading in the data returns a unique molecular identified (UMI) count matrix where rows (i) = genes & columns (p) = cells.  
@@ -36,14 +34,14 @@ str(pbmc.data)
   
 From here I create the seurat object that will serve as a container that contains both data (count matrix) and analysis.  
 ```{r, warning = F}
-# Initialize the Seurat object with the raw (non-normalized data).
+# Initialize the Seurat object
 pbmc <- CreateSeuratObject(counts = pbmc.data, project = "pbmc3k", min.cells = 3, min.features = 200)
 pbmc
 ```
 
 Curious what a count matrix looks like?  
 ```{r}
-# Lets examine a few genes in the first thirty cells
+# Examine a few genes in the first thirty cells
 pbmc.data[c("CD3D", "TCL1A", "MS4A1"), 1:30]
 ```
 the `.` represents 0s (ie no molecules detected). Seurat uses a sparse=matrix representation 
@@ -52,35 +50,28 @@ the `.` represents 0s (ie no molecules detected). Seurat uses a sparse=matrix re
 This workflow involves the selection and filtration of cells based on quality control (QC) metrics, data normalization & scaling, and the detection of highly variable features.  
 
 ### Step 1: QC
-Filtering cells based on self-defined criteria.  
-- Number of unique genes detected per cell  
-   - low quality cells or empty droplets often have few genes  
-   - cell doublets or multiplets may have very high gene counts  
-- Total number of molecules detected within a cell
-- Percentage of reads that map to the mitochondrial genome  
-   - low-quality/dying cells show extensive mitochondiral contamination  
-   - done here using a function that identifies mitochondrial specific genes   
+  
+I will filter cells based on a few different criteria. These are similar to the metrics used in the `Scanpy` post.   
+- Total number of molecules detected within a cell  
+- Number of unique genes detected per cell    
+   - few genes may indicate low quality cells or empty droplets   
+   - high gene counts may indicate cell doublets or multiplets   
+- Percentage of reads that map to the mitochondrial genome    
+   - low-quality/dying cells show extensive mitochondiral contamination   
    
 ```{r}
-# The [[ ]] operator can add columns to object metadata. This is a great place to stash QC stats
 pbmc[["percent.mt"]] <- Seurat::PercentageFeatureSet(pbmc, pattern = "^MT-")
+# The [[ ]] operator can add columns to object metadata. This is a great place to stash QC stats
 ```
 
-Unique genes and total molecules are stored in the object metadata. Here i'll show the QC metrics for the first 5 cells.  
+Unique genes and total molecules are stored in the object metadata. Here I'll show the QC metrics for the first 5 cells. I'll also plot the metrics as a violin plot.   
 ```{r, warning = F}
 head(pbmc@meta.data, 5)
 
 Seurat::VlnPlot(pbmc, features = c("nFeature_RNA", "nCount_RNA", "percent.mt"), ncol = 3)  
 ```
 
-FeatureScatter can also used to visualize feature-feature relationships.  
-```{r fig.height=4, fig.width=10,}
-plot1 <- Seurat::FeatureScatter(pbmc, feature1 = "nCount_RNA", feature2 = "percent.mt", pt.size = 0.3)
-plot2 <- Seurat::FeatureScatter(pbmc, feature1 = "nCount_RNA", feature2 = "nFeature_RNA", pt.size = 0.3)
-plot1 + plot2
-```
-
-Use this visualization I...
+Using this visualization I...
 - Filter cells that have unique feature conts > 2500 or < 200
 - Filter cells that have > 5% mitochondrial counts
 ```{r}
@@ -88,93 +79,63 @@ pbmc <- subset(pbmc, subset = nFeature_RNA > 200 & nFeature_RNA < 2500 & percent
 ```
   
 ### Step 2: Normalizing the data  
-Now that unwanted cells are removed, the data can be normalized. Will employ a global-scaling normalization method "LogNormalize" that (1) normalizes gene expression measurements for each cell by the total expression, (2) multiplies this by a scale factor (10k is default), and (3) log-transforms the result.
+Now that unwanted cells are removed, the data can be normalized. I will use a global-scaling normalization method "LogNormalize" that (1) normalizes gene expression measurements for each cell by the total expression, (2) multiplies this by a scale factor (10k is default), and (3) log-transforms the result.  
 ```{r}
-pbmc <- Seurat::NormalizeData(pbmc, normalization.method = "LogNormalize", scale.factor = 1e4)
-# can also just be written as
-# pbmc<- Seurat::NormalizeData(pbmc)
+pbmc <- Seurat::NormalizeData(pbmc, normalization.method = "LogNormalize")
 ```
-
+  
 ### Step 3: Feature Selection
-Identify a subset of features that exhibit high cell-to-cell variation in the dataset (ie genes that are highly expressed in some cells and lowly expressed in others)
-```{r fig.height=4, fig.width=10, message=FALSE, warning=FALSE}
+I can then identify a subset of features that exhibit high cell-to-cell variation (HVGs).
+```{r message=FALSE, warning=FALSE}
 pbmc <- Seurat::FindVariableFeatures(pbmc, selection.method = "vst", nfeatures = 2000)
 
-# Identify the 10 most highly variable genes
-top10 <- head(VariableFeatures(pbmc), 10)
-
-# plot variable features with and without labels
-plot1 <- Seurat::VariableFeaturePlot(pbmc)
-plot2 <- Seurat::LabelPoints(plot = plot1, points = top10, repel = TRUE)
-plot1 + plot2
+Seurat::VariableFeaturePlot(pbmc)
 ```
 
 ### Step 4: Scaling expression
-shift expression of each gene such that mean expression across cells is 0 and variance is 1. This is important so that highly-expressed genes don't dominate in downstream analyses.  
+Finally I rescale the expression of each gene such that mean expression across cells is 0 and variance is 1. This is important so that highly-expressed genes don't dominate in downstream analyses.  
 ```{r, warning = F, message = F}
-# for downstream PCA, the default is to only perform scaling on the selected features (HVGs) 
 pbmc <- Seurat::ScaleData(pbmc)
-
-# To scale all of data: 
-# all.genes <- rownames(pbmc)
-# pbmc <- Seurat::ScaleData(pbmc, features = all.genes)
 ```
 
-## PCA
-Linear dimensional reduction using HVGs
+## Dimensional Reduction: PCA
+Next I perform linear dimensional reduction using only the HVGs.  
 ```{r, message = F}
 pbmc <- Seurat::RunPCA(pbmc, features = VariableFeatures(object = pbmc))
-Seurat::DimPlot(pbmc, reduction = "pca")
-```
-  
-Show expression of a single gene
-```{r, message = F}
-Seurat::FeaturePlot(pbmc, features = "NKG7")
+Seurat::FeaturePlot(pbmc, features = "NKG7") #show expression of a single gene
 ```
 
 ### Determining dimensionality
-How many components to include??  
-An 'Elbow plot' can be used to rank principle components based on the percentage of variance explained by each.
+An 'Elbow plot' can then be used to rank principle components based on the percentage of variance explained by each.  
 ```{r}
 Seurat::ElbowPlot(pbmc)
 ```
   
-First ~10 PCs capture the majority of true signal. 
+Once again, the first ~10 PCs capture the majority of true signal. 
 
-## Non-Linear dimensional reduction (UMAP/tSNE)
-Goal of these algorithms is to learn the underlying manifold of the data in order to place similar cells together in low-dimensional space. 
-```{r fig.height=4, fig.width=10, message=FALSE, warning=FALSE}
-pbmc <- Seurat::RunUMAP(pbmc, dims = 1:10)
-pbmc <- Seurat::RunTSNE(pbmc, dims = 1:10)
-plot1 <- Seurat::DimPlot(pbmc, reduction = "umap")
-plot2 <- Seurat::DimPlot(pbmc, reduction = "tsne")
-plot1 + plot2
+## Dimensional reduction: UMAP
+Alternatively non-linear dimensional reduction techniques can be used to visualize the data.  
+```{r message=FALSE, warning=FALSE}
+pbmc <- Seurat::RunUMAP(pbmc, dims = 1:10) 
+Seurat::DimPlot(pbmc, reduction = "umap")
 ```
 
 ## Cluster cells
-Now we have data in a reduced form, lets try and group cells using the first 10 PCs.
+Now that the data is in a reduced form, I can cluster the cells using the first 10 PCs.
 ```{r warning = F, message = F}
 pbmc <- FindNeighbors(pbmc, dims = 1:10)
-```
-```{r warning = F}
-pbmc <- FindClusters(pbmc, resolution = 0.5)
-```
-```{r echo=FALSE, fig.height=4, fig.width=10, message=FALSE, warning=FALSE}
-plot1 <- Seurat::DimPlot(pbmc, reduction = "umap")
-plot2 <- Seurat::DimPlot(pbmc, reduction = "tsne")
-plot1 + plot2
+pbmc <- FindClusters(pbmc, resolution = 0.33)
+
+Seurat::DimPlot(pbmc, reduction = "umap")
 ```
     
-## Assign cell type identities to clusters  
-Use canonical markers to match the clusters to known cell types
-
-```{r fig.height=4, fig.width=10}
-new.cluster.ids <- c("Naive CD4 T", "CD14+ Mono", "Memory CD4 T", "B", "CD8 T", "FCGR3A+ Mono",
-    "NK", "DC", "Platelet")
+## Assign cell type identities to clusters   
+And finally, I can use canonical markers to match the clusters to known cell types.  
+```{r}
+new.cluster.ids <- c("CD4 T cells", "CD14+ Monocytes", "B cells", "CD8 T cells", "FCGR3A+ Mono",
+    "NK", "Dendritic Cells", "Platelets")
 names(new.cluster.ids) <- levels(pbmc)
 pbmc <- RenameIdents(pbmc, new.cluster.ids)
-plot1 <- Seurat::DimPlot(pbmc, reduction = "umap", label = T, pt.size = 0.5)
-plot2 <- Seurat::DimPlot(pbmc, reduction = "tsne", label = T, pt.size = 0.5)
-plot1 + plot2
+Seurat::DimPlot(pbmc, reduction = "umap", label = T, pt.size = 0.5)
 ```
-
+And just like that, we've analyzed single cell expression data in both R and python using the `Seurat` and `Scanpy` packages! 
