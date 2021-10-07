@@ -1,9 +1,11 @@
 ---
-title: 'Analyzing single cell data: seurat'
+title: 'Analyzing single cell data: Seurat'
 author: Joy Nyaanga
 date: '2021-10-07'
 slug: seurat
-categories: []
+categories: 
+  - R
+  - genomics
 tags: []
 subtitle: ''
 summary: ''
@@ -82,7 +84,7 @@ pbmc.data[c("CD3D", "TCL1A", "MS4A1"), 1:30]
 ## MS4A1 . 6  . . . . . . 1 1 1 . . . . . . . . . 36 1 2 . . 2 . . . .
 ```
 the `.` represents 0s (ie no molecules detected). Seurat uses a sparse=matrix representation 
-  
+
 ## Pre-processing workflow
 This workflow involves the selection and filtration of cells based on quality control (QC) metrics, data normalization & scaling, and the detection of highly variable features.  
 

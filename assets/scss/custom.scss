@@ -131,7 +131,11 @@ pre code {
     background-color: #0f1d2a;
 }
 
+/* ----- Adjust post size and font width ---- */
+.article-container {
+  max-width: 900px;
 
+}
 
 /* -------About/Home Section-------- */
 
@@ -236,3 +240,4 @@ div.demo {
 div.note {
   background-image: url("../Lightbulb.png");
 }
+

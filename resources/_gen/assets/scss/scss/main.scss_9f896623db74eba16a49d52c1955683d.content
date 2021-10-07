@@ -9587,6 +9587,10 @@ pre code {
   color: #8be9fd;
   background-color: #0f1d2a; }
 
+/* ----- Adjust post size and font width ---- */
+.article-container {
+  max-width: 900px; }
+
 /* -------About/Home Section-------- */
 .dark .home-section.wg-about {
   padding-top: 30px;
