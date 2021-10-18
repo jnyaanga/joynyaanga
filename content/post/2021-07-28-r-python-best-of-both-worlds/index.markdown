@@ -5,7 +5,7 @@ date: '2021-07-28'
 slug: r-python
 categories: 
   - R
-  - python
+  - Python
 tags: []
 subtitle: ''
 summary: ''

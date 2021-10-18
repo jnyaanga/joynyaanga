@@ -1,0 +1,186 @@
+---
+title: Trajectory inference methods
+author: Joy Nyaanga
+date: '2021-10-16'
+slug: ti
+categories:
+  - Python
+  - R
+  - genomics
+tags: []
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2021-10-09T16:28:10-05:00'
+featured: no
+image:
+  caption: '[Photo by Ravi Roshan on Unsplash](https://unsplash.com/photos/OhE6wMahECM?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink)'
+  focal_point: ''
+  preview_only: no
+projects: [trajectory-inference]
+---
+
+
+
+<p>During my internship this past summer, I spent time surveying the many existing trajectory inference (TI) methods. TI methods leverage data from thousands of single cells to reconstruct lineage paths and infer the order of cells along developmental trajectories.</p>
+<p>Selecting a method is not trivial. With the many published algorithms available and the rather nonexistent comprehensive assessment of each method, my first task was to identify a handful of promising methods to evaluate. Thanks to this <a href="https://www.nature.com/articles/s41587-019-0071-9">paper</a> where authors compared 45 TI methods on both real and synthetic data sets to assess performance, scalability, robustness, and useabiliity, I was able to narrow down a list of candidate methods.</p>
+<p>Ultimately I moved forward with the following: PAGA (Python), Palantir (Python), and Slingshot (R).</p>
+<div class="fyi">
+<p>Simply –<br />
+1. PAGA learns topology by partitioning a kNN graph and ordering cells using random-walk-based distances in the PAGA graph.<br />
+2. Palantir uses diffusion-map components to represent the underlying trajectory. It then assigns pseudotime by modeling cell fates as a probabilistic process using a Markov chain<br />
+3. Slingshot infers lineage by taking clustered cells, connecting these clusters using a minimum spanning tree, and then fitting principle curves for each detected branch. A separate pseudotime is calculated for each lineage.</p>
+</div>
+<p>Here, I will walk through the steps I used to identify trajectories and calculate pseudotime for a data set. For simplicity, I will use the <em>Paul15</em> data set (Development of Myeloid Progenitors) provided within <code>Scanpy</code>. As a heads up – since I will be using tools from both R and Python, I will be switching between the two languages in this notebook.</p>
+<div id="set-up" class="section level2">
+<h2>Set up</h2>
+<p>First loading necessary python packages.</p>
+<pre class="python"><code>import matplotlib.pyplot as plt
+import pandas as pd
+import scanpy as sc
+import scanpy.external as sce</code></pre>
+<p>Next I load the <em>paul15</em> data set and perform some scripted preprocessing steps, some of which I’ve discussed in a previous <a href="/post/scanpy">post</a>.</p>
+<pre class="python"><code>adata = sc.datasets.paul15()</code></pre>
+<pre><code>## WARNING: In Scanpy 0.*, this returned logarithmized data. Now it returns non-logarithmized data.
+## /Users/joy/miniconda3/lib/python3.9/site-packages/anndata/_core/anndata.py:1220: FutureWarning: The `inplace` parameter in pandas.Categorical.reorder_categories is deprecated and will be removed in a future version. Removing unused categories will always return a new Categorical object.
+##   c.reorder_categories(natsorted(c.categories), inplace=True)
+## ... storing &#39;paul15_clusters&#39; as categorical
+## Trying to set attribute `.uns` of view, copying.</code></pre>
+<pre class="python"><code># preprocessing QC
+sc.pp.recipe_zheng17(adata)
+# calculate pca
+sc.tl.pca(adata)
+# compute the neighbor graph
+sc.pp.neighbors(adata, n_neighbors = 20)
+# calculate umap embedding
+sc.tl.umap(adata)</code></pre>
+<p>Now that the preprocessing is done we can explore the AnnData object. This object contains information for 999 genes across 2730 cells. Any operations performed on the data are also documented. Here we performed log-transformation (log1p), calculated pca, nearest neighbors, and umap. Notice also that within <code>obs</code> there is a column names ‘paul15_clusters’. This specifies the cluster assignments given to the data.</p>
+<pre class="python"><code>adata</code></pre>
+<pre><code>## AnnData object with n_obs × n_vars = 2730 × 999
+##     obs: &#39;paul15_clusters&#39;, &#39;n_counts_all&#39;
+##     var: &#39;n_counts&#39;, &#39;mean&#39;, &#39;std&#39;
+##     uns: &#39;iroot&#39;, &#39;log1p&#39;, &#39;pca&#39;, &#39;neighbors&#39;, &#39;umap&#39;
+##     obsm: &#39;X_pca&#39;, &#39;X_umap&#39;
+##     varm: &#39;PCs&#39;
+##     obsp: &#39;distances&#39;, &#39;connectivities&#39;</code></pre>
+<p>We can visualize the data in umap space and color the cells based on which cluster they fall into.</p>
+<pre class="python"><code>sc.pl.umap(adata, color=&#39;paul15_clusters&#39;, legend_loc=&#39;on data&#39;, title = &#39;&#39;)</code></pre>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+</div>
+<div id="identify-a-start-cell" class="section level2">
+<h2>Identify a start cell</h2>
+<p>Many trajectory inference methods require the user to specify a cell or cell group as the ‘starting cell’. Or in other words, a cell/cell group that is at the least differentiated state. For this analysis, I will use a cell that is within the 7MEP (myeloid erythroid progenitor) cluster.</p>
+<pre class="python"><code># using cell within 7MEP cluster 
+adata.obs[adata.obs[&#39;paul15_clusters&#39;]  == &#39;7MEP&#39;][0:6]</code></pre>
+<pre><code>##    paul15_clusters  n_counts_all
+## 0             7MEP         353.0
+## 15            7MEP         285.0
+## 48            7MEP         545.0
+## 64            7MEP         365.0
+## 65            7MEP        2714.0
+## 66            7MEP         424.0</code></pre>
+<p>Here I have listed 6 cells that belong to this cluster. I will arbitrarily choose one to act as the starting cell.</p>
+<pre class="python"><code># visualize location of cell on umap
+cell = [&#39;48&#39;]
+umap = pd.DataFrame(adata.obsm[&#39;X_umap&#39;][:,0:2], index=adata.obs_names, columns=[&#39;x&#39;, &#39;y&#39;])
+
+plt.scatter(umap[&quot;x&quot;], umap[&quot;y&quot;], s=5, color=&quot;lightgrey&quot;)
+plt.scatter(umap.loc[cell, &quot;x&quot;], umap.loc[cell, &quot;y&quot;], s=30)</code></pre>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-8-3.png" width="672" /></p>
+</div>
+<div id="run-trajectory-inference-methods-paga-palantir" class="section level2">
+<h2>Run trajectory inference Methods: PAGA &amp; Palantir</h2>
+<p>Now I am ready to run the Python TI methods. Below I have defined a function that will run PAGA and Palantir. Notice that only Palantir requires a start cell be specified.</p>
+<pre class="python"><code>def run_trajectory(data, clusterby, startcell):
+    print(&#39;Running PAGA&#39;)
+    sc.tl.paga(data, groups = clusterby)
+    
+    print(&#39;Calculating Palantir Diffusion maps&#39;)
+    # using adaptive anisotropic adjacency matrix, instead of PCA projections (default) to compute diffusion components
+    sce.tl.palantir(data, n_components = 25, knn = 50, impute_data = False, use_adjacency_matrix = True)
+    
+    print(&#39;Run Palantir&#39;)
+    start = startcell
+    pr_res = sce.tl.palantir_results(data, knn = 50, early_cell = start)
+    # add pseudotime and differentiation potential information to anndata object
+    data.obs[&#39;palantir_pseudotime&#39;] = pr_res.pseudotime
+    data.obs[&#39;palantir_entropy&#39;] = pr_res.entropy
+    
+    run_trajectory.pr_res = pr_res.branch_probs</code></pre>
+<div class="note">
+<p>Palantir generates the following results:<br />
+1. Pseudotime: Pseudotime ordering of each cell<br />
+2. Terminal state probabilities: Matrix of cells X terminal states. Each entry represents the probability of the corresponding cell reaching the respective terminal state<br />
+3. Entropy: A quantitative measure of the differentiation potential of each cell computed as the entropy of the multinomial terminal state probabilities</p>
+</div>
+<pre class="python"><code># run methods
+run_trajectory(adata, clusterby = &#39;paul15_clusters&#39;, startcell = &#39;48&#39;)</code></pre>
+</div>
+<div id="visualize-paga-and-palantir-results" class="section level2">
+<h2>Visualize PAGA and Palantir results</h2>
+<p><img src="fig1.png" />
+On the left is the standard umap with cells colored by cluster identity. On the right is the PAGA graph. Thicker lines represent stronger connections between cell groups. As you would expect, the progenitor cell groups (MEP, GMP) are at the center of the graph. From here, branching correlates with erythroid and myeloid differentiation as we would expect. This matches nicely with the umap embedding as well.</p>
+<p>Palantir, on the other hand, identifies terminal cells. Below I’ve labeled the locations of these terminal cells.<br />
+<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-13-5.png" width="672" /></p>
+<p>I can also use the AnnData object to identify which cluster group these terminal cells belong to:</p>
+<pre class="python"><code>adata.obs[adata.obs.index.isin([&#39;2566&#39;,&#39;2034&#39;,&#39;801&#39;])][&#39;paul15_clusters&#39;]</code></pre>
+<pre><code>## 801     11DC
+## 2034    3Ery
+## 2566    15Mo
+## Name: paul15_clusters, dtype: category
+## Categories (19, object): [&#39;1Ery&#39;, &#39;2Ery&#39;, &#39;3Ery&#39;, &#39;4Ery&#39;, ..., &#39;16Neu&#39;, &#39;17Neu&#39;, &#39;18Eos&#39;, &#39;19Lymph&#39;]</code></pre>
+<p>Given these terminal cells, Palantir also calculates terminal state probabilities (see above). These values can be visualized on the umap:<br />
+<img src="fig3.png" /><br />
+Alternatively, the pseudotime across all cells can be plotted:<br />
+<img src="fig2.png" /></p>
+</div>
+<div id="run-slingshot" class="section level2">
+<h2>Run Slingshot</h2>
+<p>While PAGA and Palantir can be run in Python, in order to run the slingshot algorithm, we must move to R.</p>
+<div class="note">
+<p>Slingshot has 2 steps:<br />
+1. Identify lineage structure with a cluster-based minimum spanning tree.<br />
+2. Construct smooth representations of each lineage using simultaneous principal curves</p>
+</div>
+<pre class="r"><code>library(slingshot, quietly = T)
+library(dplyr)</code></pre>
+<p>Since I have been handling the single-cell data in AnnData format, I will call the object using the <code>reticulate</code> package notation instead of converting the data to a Seurat object. I will use <code>data</code> to specify data after dimensional reduction by pca and <code>clusters</code> to indicate to which group each cell belongs.</p>
+<pre class="r"><code>data  &lt;- py$adata$obsm[&#39;X_pca&#39;]
+clusters &lt;- py$adata$obs[&#39;paul15_clusters&#39;] %&gt;% dplyr::pull()</code></pre>
+<p>Similar to Palantir, I also specify a starting point. In this case, because Slingshot draws connections between <em>clusters</em> I assign a starting cluster.</p>
+<pre class="r"><code>results &lt;- slingshot(data, clusterLabels = clusters, start.clus = &#39;7MEP&#39;)</code></pre>
+<pre><code>## Using diagonal covariance matrix</code></pre>
+<p>The output of a slingshot run contains information about each <code>lineage</code> path identified by the algorithm. Below I pull this information and convert it to a python object. I then add it to the <code>.uns</code> element of the AnnData object. Essentially, this describes the path from the user defined starting cluster (MEP) to all terminal states determined by Slingshot.</p>
+<pre class="r"><code>results@lineages</code></pre>
+<pre><code>## $Lineage1
+## [1] &quot;7MEP&quot;   &quot;12Baso&quot; &quot;9GMP&quot;   &quot;10GMP&quot;  &quot;13Baso&quot; &quot;14Mo&quot;   &quot;15Mo&quot;   &quot;16Neu&quot; 
+## 
+## $Lineage2
+## [1] &quot;7MEP&quot; &quot;6Ery&quot; &quot;5Ery&quot; &quot;4Ery&quot; &quot;3Ery&quot; &quot;2Ery&quot; &quot;1Ery&quot;
+## 
+## $Lineage3
+## [1] &quot;7MEP&quot;   &quot;12Baso&quot; &quot;9GMP&quot;   &quot;10GMP&quot;  &quot;11DC&quot;  
+## 
+## $Lineage4
+## [1] &quot;7MEP&quot;   &quot;12Baso&quot; &quot;17Neu&quot; 
+## 
+## $Lineage5
+## [1] &quot;7MEP&quot;    &quot;12Baso&quot;  &quot;19Lymph&quot;
+## 
+## $Lineage6
+## [1] &quot;7MEP&quot;   &quot;12Baso&quot; &quot;18Eos&quot; 
+## 
+## $Lineage7
+## [1] &quot;7MEP&quot; &quot;8Mk&quot;</code></pre>
+<pre class="r"><code>lineages &lt;- r_to_py(results@lineages)</code></pre>
+<pre class="python"><code>adata.uns[&#39;lineages&#39;] = r.lineages</code></pre>
+<div id="visualize-slingshot-results" class="section level3">
+<h3>Visualize slingshot results</h3>
+<p>For visualization, I can then overlay these paths on the umap. Similar to both PAGA and Palantir, we observe a branching pattern that corresponds with erythroid and myeloid differentiation.
+<img src="fig4.png" /></p>
+</div>
+</div>
+<div id="wrap-up" class="section level2">
+<h2>Wrap up</h2>
+<p>Over the course of my internship, I used these algorithms to identify trajectories describing potential cell differentiation patterns. While the algorithms themselves are rather straightforward to implement, there are many nuanced difficulties when performing such analyses. A sticking point I found was how to best specify a starting cell. Oftentimes the data I worked with contained differentiated cell types almost exclusively. As such, selecting a cell/cell group to designate as a start point was difficult. Additionally, it is challenging to consider how to integrate study metadata (treatment group, patient id etc.) into this analysis. If samples from 30 patients were collected, how do we estimate cell trajectories? Is it appropriate to group all of the data and find a common trajectory? What about trajectories unique to certain patients? How do we quantify the amount of uncertainty in an estimated lineage path? So many things to consider!! But overall I had a blast learning some new computational techniques and diving into the world of single-cell genomics.</p>
+</div>

@@ -1,9 +1,11 @@
 ---
-title: 'Analyzing single cell data: scanpy'
+title: 'Analyzing single cell data: Scanpy'
 author: Joy Nyaanga
 date: '2021-10-05'
 slug: scanpy
 categories: 
+  - Python
+  - genomics
 tags: []
 subtitle: ''
 summary: ''
@@ -239,7 +241,6 @@ sc.pl.umap(pbmc, color='clusters', legend_loc='on data')
 
 --------------------
   
-And there we have it! I've illustrated how `scanpy` can be used to handle single-cell RNA-seq data in python. For a more thorough walkthrough of the many functions available in `scanpy`, I would recommend checking out the well documented [Tutorials](https://scanpy.readthedocs.io/en/stable/tutorials.html) available. In my next post I will do this exact same analysis using the `Seurat` package in R.  
+And there we have it! I've illustrated how `scanpy` can be used to handle single-cell RNA-seq data in python. For a thorough walkthrough of the many functions available in `scanpy`, I would recommend checking out the well documented [Tutorials](https://scanpy.readthedocs.io/en/stable/tutorials.html) available. In my next post I will do this exact analysis using the `Seurat` package in R.  
   
 Stay tuned!  
-
