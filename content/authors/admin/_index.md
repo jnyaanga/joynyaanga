@@ -1,5 +1,5 @@
 ---
-bio: My interests include developmental biology, data visualization, and R.
+bio: My interests include developmental biology, data science, and R.
 education:
   courses:
   - course: PhD in Quantitative Biology
@@ -15,8 +15,8 @@ email: ""
 highlight_name: false
 interests:
 - Developmental Biology
-- Genomics
 - Data Science
+- R package development
 - Mentoring & Education
 organizations:
 - name: Northwestern University
@@ -40,9 +40,9 @@ social:
 superuser: true
 title: Joy Nyaanga
 ---
-I am a PhD candidate at **Northwestern University** studying the impact of diet perturbation and 
+I am a PhD candidate at **Northwestern University** studying the impact of 
 genetic diversity on animal growth and development. My professional interests lie in leveraging 
-analytical thinking and reproducible programming to solve complex problems.
+analytical thinking and reproducible programming to solve complex problems. 
 
 I am an avid user of the R programming language. I use R in all aspects of my research from 
 performing statistical analyses, creating detailed visualizations, to generating comprehensive reports.
