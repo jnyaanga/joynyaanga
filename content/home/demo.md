@@ -13,19 +13,18 @@ headless: true
 weight: 10
 
 title: Welcome!
-#subtitle: It's great to have you here
 
 design:
   columns: "1"
   background:
-    image: prism.svg
-    image_darken: 0.8
+    image: endless-constellation.svg
     image_parallax: true
     image_position: 'center'
     image_size: cover
     text_color_light: true
   spacing:
     padding: ["100px", "0", "100px", "0"] 
+# background by SVGBackgrounds.com
 ---
 
 

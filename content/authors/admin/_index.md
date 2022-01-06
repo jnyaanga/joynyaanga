@@ -8,7 +8,7 @@ education:
   - course: MA in Molecular Biology
     institution: Princeton University
     year: 2018
-  - course: BS in Chemistry; Biochemistry concentration, and Cell & Molecular Biology
+  - course: BS in Chemistry; BS in Cell & Molecular Biology
     institution: John Carroll University
     year: 2017
 email: ""
@@ -44,9 +44,10 @@ I am a PhD candidate at **Northwestern University** studying the impact of
 genetic diversity on animal growth and development. My professional interests lie in leveraging 
 analytical thinking and reproducible programming to solve complex problems. 
 
-I am an avid user of the R programming language. I use R in all aspects of my research from 
-performing statistical analyses, creating detailed visualizations, to generating comprehensive reports.
-When I'm not coding I enjoy all forms of fiction (book and podcast recs welcome!), and 
+First introduced to the wonderful world of code 5 years ago, I've since added Python, R, bash, and SQL to my repertoire.
+Currently, I am an avid user of the R programming language. I use R in all aspects 
+of my research from performing statistical analyses, creating detailed visualizations, to generating 
+comprehensive reports. When I'm not coding I enjoy all forms of fiction (book and podcast recs welcome!), and 
 exploring the gorgeous city of Chicago.
 
 Welcome to my [blogdown](https://github.com/rstudio/blogdown)-powered website! I'm hoping to share more about my research,

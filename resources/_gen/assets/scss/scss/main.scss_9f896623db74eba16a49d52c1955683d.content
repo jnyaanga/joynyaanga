@@ -9514,9 +9514,9 @@ body {
   background-image: linear-gradient(to bottom, #161617, #1C1C1Ced, #1C1C1Cba, #16161720) !important; }
 
 .navbar {
-  background-color: #fcfcfc33;
-  box-shadow: 0 0 50px rgba(252, 252, 252, 0.5);
-  background-image: linear-gradient(to bottom, #fcfcfc, #fcfcfc, #fcfcfc, #fcfcfced, #fcfcfcba, #fcfcfc33) !important; }
+  background-color: transparent;
+  box-shadow: 0 0 50px rgba(252, 252, 252, 0);
+  background-image: linear-gradient(to bottom, #fcfcfc, #fcfcfc23) !important; }
 
 /*make drop down menu more opaque on mobile */
 @media (max-width: 991.98px) {
@@ -9595,12 +9595,12 @@ pre code {
 .dark .home-section.wg-about {
   padding-top: 30px;
   margin-top: -30px;
-  box-shadow: 0 0 50px rgba(250, 250, 250, 0.6); }
+  box-shadow: 0 0 50px rgba(250, 250, 250, 0.4); }
 
 .home-section.wg-about {
   padding-top: 30px;
   margin-top: -30px;
-  box-shadow: 0 0 30px 30px rgba(252, 252, 252, 0.5); }
+  box-shadow: 0 0 30px 30px rgba(252, 252, 252, 0.2); }
 
 #about h1 {
   margin-bottom: 50px; }
