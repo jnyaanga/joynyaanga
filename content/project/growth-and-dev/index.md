@@ -4,15 +4,12 @@ external_link: ""
 image:
   focal_point: Smart
 links:
-#- icon: images
-#  icon_pack: fas
-#  name: slides
 - icon: youtube
   icon_pack: fab
   name: micro-talk
   url: https://youtu.be/hnELwhp9SBk
 summary: Investigating the impact of diet variation on phenotypic plasticity in developing *Caenorhabditis elegans*
-title: C. elegans growth and development
+title: _C. elegans_ growth and development
 url_code: ""
 url_pdf: ""
 url_slides: ""

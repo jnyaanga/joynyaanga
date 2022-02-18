@@ -1,8 +1,8 @@
 ---
-title: RNA-seq - Impact of diet on C. elegans expression patterns 
+title: RNA-seq - Impact of diet on _C. elegans_ expression patterns 
 date: "2021-10-05T00:00:00Z"
 external_link: ""
-summary: Implementing a bulk RNA-seq pipeline to C. elegans expression data
+summary: Implementing a bulk RNA-seq pipeline to _C. elegans_ expression data
 url_code: ""
 url_pdf: ""
 url_slides: ""

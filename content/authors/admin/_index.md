@@ -44,8 +44,8 @@ I am a PhD candidate at **Northwestern University** studying the impact of
 genetic diversity on animal growth and development. My professional interests lie in leveraging 
 analytical thinking and reproducible programming to solve complex problems. 
 
-First introduced to the wonderful world of code 5 years ago, I've since added Python, R, bash, and SQL to my repertoire.
-Currently, I am an avid user of the R programming language. I use R in all aspects 
+I was first introduced to the wonderful world of code 5 years ago, and have since added Python, R, bash, 
+and SQL to my repertoire. Currently, I am an avid user of the R programming language. I use R in all aspects 
 of my research from performing statistical analyses, creating detailed visualizations, to generating 
 comprehensive reports. When I'm not coding I enjoy all forms of fiction (book and podcast recs welcome!), and 
 exploring the gorgeous city of Chicago.
