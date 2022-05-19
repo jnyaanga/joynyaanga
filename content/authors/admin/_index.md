@@ -4,7 +4,7 @@ education:
   courses:
   - course: PhD in Quantitative Biology
     institution: Northwestern University
-    year: Expected 2022
+    year: 2022
   - course: MA in Molecular Biology
     institution: Princeton University
     year: 2018
@@ -14,14 +14,14 @@ education:
 email: ""
 highlight_name: false
 interests:
+- Quantitative genetics
+- Genomics
 - Developmental Biology
-- Data Science
-- R package development
 - Mentoring & Education
 organizations:
 - name: Northwestern University
   url: https://www.northwestern.edu
-role: PhD Candidate
+role: Bioinformatician
 social:
 - display:
     header: true
@@ -40,15 +40,24 @@ social:
 superuser: true
 title: Joy Nyaanga
 ---
-I am a PhD candidate at **Northwestern University** studying the impact of 
-genetic diversity on animal growth and development. My professional interests lie in leveraging 
-analytical thinking and reproducible programming to solve complex problems. 
+I recently completed my PhD at **Northwestern University** studying the impact of 
+genetic diversity on animal growth and development. I am currently a Bioinformatician 
+in the Andersen Lab at Northwestern University. My professional interests lie in 
+leveraging analytical thinking and reproducible programming to solve complex problems. 
 
+<<<<<<< Updated upstream
 I was first introduced to the wonderful world of code 5 years ago, and have since added Python, R, bash, 
 and SQL to my repertoire. Currently, I am an avid user of the R programming language. I use R in all aspects 
 of my research from performing statistical analyses, creating detailed visualizations, to generating 
 comprehensive reports. When I'm not coding I enjoy all forms of fiction (book and podcast recs welcome!), and 
 exploring the gorgeous city of Chicago.
+=======
+I was first introduced to the wonderful world of code 5 years ago. Since then I've added 
+Python, R, bash, and SQL to my repertoire. I am currently an avid user of the R programming language. 
+I use R in all aspects of my research from performing statistical analyses, creating detailed visualizations,
+to generating comprehensive reports. When I'm not coding I enjoy all forms of fiction (book and podcast recs welcome!), 
+and exploring the gorgeous city of Chicago.
+>>>>>>> Stashed changes
 
 Welcome to my [blogdown](https://github.com/rstudio/blogdown)-powered website! I'm hoping to share more about my research,
 exciting projects I've been a part of, and any useful tidbits I come across. Please have a look around!
