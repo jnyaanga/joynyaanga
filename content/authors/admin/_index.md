@@ -45,19 +45,11 @@ genetic diversity on animal growth and development. I am currently a Bioinformat
 in the Andersen Lab at Northwestern University. My professional interests lie in 
 leveraging analytical thinking and reproducible programming to solve complex problems. 
 
-<<<<<<< Updated upstream
-I was first introduced to the wonderful world of code 5 years ago, and have since added Python, R, bash, 
-and SQL to my repertoire. Currently, I am an avid user of the R programming language. I use R in all aspects 
-of my research from performing statistical analyses, creating detailed visualizations, to generating 
-comprehensive reports. When I'm not coding I enjoy all forms of fiction (book and podcast recs welcome!), and 
-exploring the gorgeous city of Chicago.
-=======
 I was first introduced to the wonderful world of code 5 years ago. Since then I've added 
 Python, R, bash, and SQL to my repertoire. I am currently an avid user of the R programming language. 
 I use R in all aspects of my research from performing statistical analyses, creating detailed visualizations,
 to generating comprehensive reports. When I'm not coding I enjoy all forms of fiction (book and podcast recs welcome!), 
 and exploring the gorgeous city of Chicago.
->>>>>>> Stashed changes
 
 Welcome to my [blogdown](https://github.com/rstudio/blogdown)-powered website! I'm hoping to share more about my research,
 exciting projects I've been a part of, and any useful tidbits I come across. Please have a look around!
