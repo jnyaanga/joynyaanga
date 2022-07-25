@@ -1,6 +1,6 @@
 ---
 cms_exclude: false 
-header:
+header: 
   caption: ""
   image: ""
 title: Publications
