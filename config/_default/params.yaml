@@ -16,7 +16,7 @@ site_type: Person
 local_business_type: ''
 org_name: ''
 description: "Joy Nyaanga's personal website"
-twitter: 'j2wrld'
+#twitter: 'j2wrld'
 
 
 # Contact (edit or remove options as required)
@@ -98,7 +98,7 @@ avatar:
   shape: circle
 publications:
   date_format: January 2006
-  citation_style: apa
+  citation_style: mla
 projects:
   post_view: 2
   publication_view: 2
@@ -109,11 +109,11 @@ breadcrumb:
 comments:
   provider: ''
   commentable:
-    post: true
-    book: true
-    project: true
-    publication: true
-    event: true
+    post: false
+    book: false
+    project: false
+    publication: false
+    event: false
   disqus:
     shortname: ''
     show_count: true

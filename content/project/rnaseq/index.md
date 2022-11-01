@@ -40,9 +40,9 @@ and read counts were reported in triplicate.
 # Objective
 
 I plan to study the publicly available raw FASTQ files during this course. My goal is to 
-successfully analyze these data through all steps of an RNAseq bioinformatics pipeline (the 
-AndersenLab has such a pipeline). I have considerable experience using R for data 
-manipulation and statistical analysis but I have no experience handling sequencing data. 
+successfully analyze these data through all steps of an RNAseq bioinformatics pipeline.
+I have considerable experience using R for data manipulation and statistical analysis 
+but I have no experience handling sequencing data. 
 Through this project I hope to gain a better understanding of how sequencing data can be 
 processed and studied using command line and R. From this analysis, I expect to identify 
 differentially expressed genes when comparing E. coli OP50 and HB101 diets. I expect many 

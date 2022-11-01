@@ -1,5 +1,5 @@
 ---
-bio: My interests include developmental biology, data science, and R.
+bio: My interests include genomics, data science, and R.
 education:
   courses:
   - course: PhD in Quantitative Biology
@@ -14,17 +14,16 @@ education:
 email: ""
 highlight_name: false
 interests:
-- Quantitative genetics
 - Genomics
-- Developmental Biology
+- Pipeline & package development
 - Mentoring & Education
 organizations:
-- name: Northwestern University
-  url: https://www.northwestern.edu
-role: Bioinformatician
+- name: Lurie Children's Hospital
+  url: https://www.luriechildrens.org
+role: Senior Bioinformatician
 social:
 - display:
-    header: true
+    header: false
   icon: twitter
   icon_pack: fab
   link: https://twitter.com/j2wrld
@@ -40,19 +39,18 @@ social:
 superuser: true
 title: Joy Nyaanga
 ---
-I recently completed my PhD at **Northwestern University** studying the impact of genetic diversity on animal growth and development. 
-I have since transitioned to a position as a Bioinformatician in the [Andersen Lab](https://andersenlab.org/) where I handle the 
-analysis and organization of all data releases for the _C. elegans_ Natural Diversity Resource ([CeNDR](https://elegansvariation.org)).
+I completed my PhD at **Northwestern University** studying the impact of genetic diversity on animal growth and development. 
+Now, I work as a Senior Bioinformatician at **Lurie Children's Hospital of Chicago** supporting clinical and research analysis needs.
 My professional interests lie in leveraging analytical thinking and reproducible programming to solve complex problems. 
 
-I was first introduced to the wonderful world of programming five years ago. Throughout my PhD I was an avid user of the R programming language. 
-I used R in all aspects of my research from performing statistical analyses, creating detailed visualizations, to generating comprehensive reports. 
-Now, I use bash and Nextflow extensively to organize and analyze whole-genome sequence data.
-When I'm not coding I enjoy all forms of fiction (book and podcast recs welcome!), and exploring the gorgeous city of Chicago.
+Throughout my PhD I was an avid user of the R programming language. I used R in all aspects of my research 
+from performing statistical analyses, creating detailed visualizations, to generating comprehensive reports. 
+Now, I use bash and Nextflow extensively to organize and analyze genomic data.
+When I'm not coding I enjoy all forms of fiction, and exploring the gorgeous city of Chicago.
 
 Welcome to my [blogdown](https://github.com/rstudio/blogdown)-powered website! I'm hoping to share more about my research,
 exciting projects I've been a part of, and any useful tidbits I come across. Please have a look around!
 
 
-{{< icon name="download" pack="fas" >}} Download my {{< staticref "media/Nyaanga_resume.pdf" "newtab" >}}resumé{{< /staticref >}}.
+{{< icon name="download" pack="fas" >}} Download my {{< staticref "media/Nyaangsa_resume.pdf" "newtab" >}}resumé{{< /staticref >}}.
  
