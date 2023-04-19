@@ -1,15 +1,12 @@
 - name: "Ph.D. Quantitative Biology"
   university: "Northwestern University"
   date: "2022"
-  gpa: "3.9 / 4.0"
 
 - name: "M.A. Molecular Biology"
   university: "Princeton University"
   date: "2018"
-  gpa : "3.6 / 4.0"
   
 - name: "B.S. Chemistry | B.S. Cell & Molecular Biology"
   university: "John Carroll University University"
   date: "2017"
-  gpa : "3.64 / 4.0"
  

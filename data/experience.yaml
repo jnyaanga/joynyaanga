@@ -20,15 +20,15 @@
     - role: PhD Candidate
       date: "09.2018 - 04.2022"
       details: |
-        • Conduct extensive analysis of large experimental data sets in R to investigate organismal growth and development.  
-        • Implement advanced analytical and statistical methods in R including linear mixed effect models, 
+        • Conducted extensive analysis of large experimental data sets in R to investigate organismal growth and development.  
+        • Implemented advanced analytical and statistical methods in R including linear mixed effect models, 
         ANOVA/regression models, model selection, and clustering.
 
 - company: Celsius Therapeutics
   roles:
     - role: Data Science Intern
       details: |
-        • Coded extensively in Python and R to analyze single-cell RNAseq data 
+        • Analyzed single-cell RNAseq data in R and Python
         to uncover new insights into disease progression using trajectory inference algorithms.  
         • Generated comprehensive reports using Rmarkdown and Jupyter to deliver findings with team leads.
       date: "05.2021 - 09.2021"
