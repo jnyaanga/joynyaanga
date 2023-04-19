@@ -69,8 +69,8 @@ taxonomies:
   author: authors
 related:
   threshold: 80
-  includeNewer: true
-  toLower: true
+  includeNewer: false
+  toLower: false
   indices:
     - name: tags
       weight: 100

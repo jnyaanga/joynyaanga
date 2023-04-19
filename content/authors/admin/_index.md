@@ -8,7 +8,7 @@ education:
   - course: MA in Molecular Biology
     institution: Princeton University
     year: 2018
-  - course: BS in Chemistry; BS in Cell & Molecular Biology
+  - course: BS in Chemistry | BS in Cell & Molecular Biology
     institution: John Carroll University
     year: 2017
 email: ""
@@ -40,17 +40,13 @@ superuser: true
 title: Joy Nyaanga
 ---
 I completed my PhD at **Northwestern University** studying the impact of genetic diversity on animal growth and development. 
-Now, I work as a Senior Bioinformatician at **Lurie Children's Hospital of Chicago** supporting clinical and research analysis needs.
+Now, I work as a Senior Bioinformatician at **Lurie Children's Hospital of Chicago** performing clinical and research bioinformatic analysis. 
 My professional interests lie in leveraging analytical thinking and reproducible programming to solve complex problems. 
 
 Throughout my PhD I was an avid user of the R programming language. I used R in all aspects of my research 
 from performing statistical analyses, creating detailed visualizations, to generating comprehensive reports. 
-Now, I use bash and Nextflow extensively to organize and analyze genomic data.
-When I'm not coding I enjoy all forms of fiction, and exploring the gorgeous city of Chicago.
+Now, I use bash and Nextflow extensively to build and maintain pipelines that organize and analyze genomic data.
 
-Welcome to my [blogdown](https://github.com/rstudio/blogdown)-powered website! I'm hoping to share more about my research,
-exciting projects I've been a part of, and any useful tidbits I come across. Please have a look around!
+Welcome to my [blogdown](https://github.com/rstudio/blogdown)-powered website! Please have a look around!
 
-
-{{< icon name="download" pack="fas" >}} Download my {{< staticref "media/Nyaangsa_resume.pdf" "newtab" >}}resumé{{< /staticref >}}.
  

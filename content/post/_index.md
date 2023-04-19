@@ -1,4 +1,5 @@
 ---
+active: false
 header:
   caption: ""
   image: ""
