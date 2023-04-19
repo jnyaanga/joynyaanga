@@ -14,7 +14,7 @@ main:
 #    url: 'post/'
 #    weight: 30
   - name: Resume
-    url: 'resume/'
+    url: 'https://resume.joynyaanga.com'
     weight: 30
 #  - name: Publications
 #    url: 'publication/'
