@@ -1,4 +1,4 @@
-baseURL: "https://joynyaanga.com/resume/"
+baseURL: "https://resume.joynyaanga.com"
 languageCode: "en-us"
 title: Resume | Joy Nyaanga, PhD
 disableKinds: ["taxonomy", "term", "page", "section", "RSS", "sitemap", "robotsTXT", "404"]
