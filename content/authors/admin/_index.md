@@ -40,7 +40,7 @@ superuser: true
 title: Joy Nyaanga
 ---
 I completed my PhD at **Northwestern University** studying the impact of genetic diversity on animal growth and development. 
-Now, I work as a Senior Bioinformatician at **Lurie Children's Hospital of Chicago** performing clinical and research bioinformatic analysis. 
+Currently, I work as a Senior Bioinformatician at **Lurie Children's Hospital of Chicago** performing clinical and research bioinformatic analysis. 
 My professional interests lie in leveraging analytical thinking and reproducible programming to solve complex problems. 
 
 Throughout my PhD I was an avid user of the R programming language. I used R in all aspects of my research 

@@ -3,19 +3,6 @@ title: Changes in body shape implicate cuticle stretch in C. elegans growth cont
 url_code: https://github.com/AndersenLab/C.elegans-growth-manuscript
 slug: growth
 publishDate: "2022-04-12T00:00:00Z"
-authors:
-- admin
-- Christina Goss
-- Gaotian Zhang
-- Hannah N. Ahmed
-- Elliot J. Andersen
-- Isabella R. Miller
-- Justine K. Rozenich
-- Iris L. Swarthout
-- Jordan A. Vaughn
-- Erik C. Andersen
-- Niall M. Mangan
-- Sasha Shirman
 date: "2022-04-12T00:00:00Z"
 doi: "https://doi.org/10.1016/j.cdev.2022.203780"
 featured: true
