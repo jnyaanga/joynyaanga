@@ -37,7 +37,7 @@ The bioinformatics approach I developed leverages a combination of existing soft
 
 By integrating community-driven pipelines and custom-developed processing, this workflow ensures accurate, reproducible, and meaningful analyses.
 
-## Unveiling the Future
+## Conclusion
 
 As a whole, this project underlines my commitment to scientific exploration and innovation, and demonstrates my capacity to spearhead complex endeavors with precision and self-reliance. I look forward to seeing the impact of this pipeline on our research endeavors!
 
