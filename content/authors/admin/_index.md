@@ -39,13 +39,12 @@ social:
 superuser: true
 title: Joy Nyaanga
 ---
-I completed my PhD at **Northwestern University** studying the impact of genetic diversity on animal growth and development. 
-Currently, I work as a Senior Bioinformatician at **Lurie Children's Hospital of Chicago** performing clinical and research bioinformatic analysis. 
-My professional interests lie in leveraging analytical thinking and reproducible programming to solve complex problems. 
 
-Throughout my PhD I was an avid user of the R programming language. I used R in all aspects of my research 
-from performing statistical analyses, creating detailed visualizations, to generating comprehensive reports. 
-Now, I use bash and Nextflow extensively to build and maintain pipelines that organize and analyze genomic data.
+I am a dedicated bioinformatics professional with a passion for leveraging data science and reproducible programming to drive transformative research and clinical advancements.
+
+During my Ph.D. journey at **Northwestern University**, I explored genetic diversity and it's influence on animal growth and development. Throughout this experience, I honed my analytical skills and became an avid user of the R programming language. I used R to perform statistical analyses, craft detailed visualizations, and generate comprehensive reports - contributing to novel insights in my field.
+
+As a Senior Bioinformatician at **Lurie Children’s Hospital of Chicago**, I have embraced the opportunity to apply my expertise in real-world scenarios. My role involves performing vital clinical and research bioinformatic analyses, where precision and accuracy are critical. Here, I have expanded my skill set to include bash and Nextflow, empowering me to build and maintain robust pipelines that effectively organize and analyze vast genomic datasets.
 
 Welcome to my [blogdown](https://github.com/rstudio/blogdown)-powered website! Please have a look around!
 
