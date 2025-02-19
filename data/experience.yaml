@@ -1,34 +1,31 @@
+- company: Evozyne
+  roles:
+    - role: Data Scientist II
+      details: |
+         • Lead design and implementation of scalable, automated bioinformatics pipelines for bulk RNA-seq and scRNA-seq data.  
+         • Apply machine learning techniques to analyze gene editing experiments.  
+         • Collaborate with cross-disciplinary teams to integrate generative models (VAE) with bioinformatics pipelines.  
+         • Manage and plan computational resources for multi-omics and bioinformatics projects.  
+      date: "04.2024 -  Present"  
 - company: Ann & Robert H. Lurie Children's Hospital
   roles:
     - role: Senior Bioinformatician
       details: |
-         • Perform integrative analysis using NGS data sets.  
-         • Develop and maintain bioinformatics pipelines for various -omics platforms.  
-         • Provide cross-functional analytical support for clinical and research projects.  
-         • Establish R programming educational content for research community.
-      date: "09.2022 -  Present"
+         • Designed and optimized bioinformatics pipelines.     
+         • Created and deployed R Shiny dashboards for interactive data visualization.   
+         • Provided mentorship and technical guidance to junior team members.     
+         • Established R programming educational content for research community.   
+      date: "09.2022 -  03.2024"
 
 - company: Northwesterm University
   roles: 
     - role: Bioinformatician
       details: |
-         • Managed, organized, and analyzed whole-genome sequence data.  
-         • Maintained bioinformatics pipelines for variant calling, population
-         genomics, and genome-wide association mappings.
+         • Streamlined large-scale genomic data analysis workflows for genetic variation studies using Nextflow, R, and Bash, ensuring reproducible and efficient analyses.  
+         • Applied statistical and machine learning models to interpret complex biological data.  
       date: "05.2022 - 09.2022"
     
     - role: PhD Candidate
       date: "09.2018 - 04.2022"
       details: |
         • Conducted extensive analysis of large experimental data sets in R to investigate organismal growth and development.  
-        • Implemented advanced analytical and statistical methods in R including linear mixed effect models, 
-        ANOVA/regression models, model selection, and clustering.
-
-- company: Celsius Therapeutics
-  roles:
-    - role: Data Science Intern
-      details: |
-        • Analyzed single-cell RNAseq data in R and Python
-        to uncover new insights into disease progression using trajectory inference algorithms.  
-        • Generated comprehensive reports using Rmarkdown and Jupyter to deliver findings with team leads.
-      date: "05.2021 - 09.2021"

@@ -1,6 +1,6 @@
 about:
-  name: Joy Nyaanga
-  tagline: Senior Bioinformatician
+  name: Joy McIlvaine
+  tagline: Data Scientist II - Bioinformatics
   email: jnyaan@gmail.com
   links:
     - title: 
@@ -14,17 +14,17 @@ about:
       icon: fab fa-github
 
   details: |
-    Detail-oriented and self-motivated computational biologist with extensive cross-functional collaborative experience. 
-    Proven strengths in R package development, Nextflow pipeline development and high-throughput data analysis.
-    Effective communicator with demonstrated experience in technical communication and teaching.
-    Passionate about problem-solving, educating, and learning.  
+    Data Scientist and Bioinformatician with expertise in multi-omics data analysis, machine learning, and workflow automation. 
+    Proven track record in implementing innovative bioinformatics solutions for drug discovery and target identification in immunology. 
+    Adept at leveraging cloud computing and advanced analytics to derive actionable insights from complex biological datasets. 
+    Experienced in leading cross-functional collaborations and optimizing computational pipelines for clinical and research applications.  
 
 
 skills:
 
   - groupName: Programming
     list:
-      - R - Python - bash - git/GitHub
+      - Python - R - bash - git/GitHub
 
   - groupName: Computing
     list:
@@ -34,7 +34,7 @@ skills:
 interests:
   - Genomics
   - Data Science
-  - Mentoring & Education
+  - Bioinformatics
 
 
 # This will use the default widget: "details-list"
